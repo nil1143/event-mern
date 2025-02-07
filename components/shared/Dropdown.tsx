@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -18,8 +18,9 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-import { ICategory } from "@/lib/database/models/category.models";
+import { ICategory } from "@/lib/database/models/category.model";
 import { Input } from "../ui/input";
+import { createCategory, getAllCategories } from "@/lib/actions/category.actions";
 
 type DropdownProps = {
   value?: string;
@@ -28,12 +29,32 @@ type DropdownProps = {
 
 const Dropdown = ({ onChangeHandler, value }: DropdownProps) => {
   const [categories, setCategories] = useState<ICategory[]>([]);
-  const [newCategory, setNewCategory] = useState('');
+  const [newCategory, setNewCategory] = useState("");
+
+  const handleAddCategory = () => {
+    createCategory({
+      categoryName: newCategory.trim()
+    })
+      .then((category) => {
+        setCategories((prevState) => [...prevState, category])
+      })
+  }
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const categoryList = await getAllCategories();
+
+      categoryList && setCategories(categoryList as ICategory[])
+    }
+
+    getCategories();
+  }, [])
+
 
   return (
     <Select onValueChange={onChangeHandler} defaultValue={value}>
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Theme" />
+        <SelectValue placeholder="Category" />
       </SelectTrigger>
       <SelectContent>
         {categories.length > 0 &&
@@ -66,7 +87,8 @@ const Dropdown = ({ onChangeHandler, value }: DropdownProps) => {
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
               <AlertDialogAction
-                // onClick={() => startTransition(handleAddCategory)}
+              // onClick={() => startTransition(handleAddCategory)}
+              onClick={handleAddCategory}
               >
                 Add
               </AlertDialogAction>
