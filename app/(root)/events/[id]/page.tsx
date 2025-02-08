@@ -1,14 +1,13 @@
+// import CheckoutButton from '@/components/shared/CheckoutButton';
+import Collection from "@/components/shared/Collection";
 import { getEventById } from "@/lib/actions/event.actions";
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
-import { Collection } from "mongoose";
 import Image from "next/image";
-import React from "react";
 
-const EventDetails = async ({
-  params: { id },
-  searchParams,
-}: SearchParamProps) => {
+const EventDetails = async (props: SearchParamProps) => {
+  const { params } = await props;
+  const { id } = await params;
   const event = await getEventById(id);
 
   return (
@@ -18,9 +17,9 @@ const EventDetails = async ({
           <Image
             src={event.imageUrl}
             alt="hero image"
-            width={800}
-            height={800}
-            className="h-full min-h-[300px] object-contain object-center"
+            width={1000}
+            height={1000}
+            className="h-full min-h-[300px] object-cover object-center"
           />
 
           <div className="flex w-full flex-col gap-8 p-5 md:p-10">
@@ -88,6 +87,11 @@ const EventDetails = async ({
             </div>
           </div>
         </div>
+      </section>
+
+      {/* EVENTS with the same category */}
+      <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+        <h2 className="h2-bold">Related Events</h2>
       </section>
     </>
   );

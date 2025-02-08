@@ -5,17 +5,13 @@ import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Home({ searchParams }: SearchParamProps) {
-  // const page = Number(searchParams?.page) || 1;
-  // const searchText = (searchParams?.query as string) || "";
-  // const category = (searchParams?.category as string) || "";
-
+export default async function Home() {
   const events = await getAllEvents({
-    query: '',
-    category: '',
+    query: "",
+    category: "",
     page: 1,
-    limit: 6
-  })
+    limit: 6,
+  });
 
   return (
     <>
