@@ -37,7 +37,6 @@ type EventFormProps = {
 
 const EventForrm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
-  // const initialValues = eventDefaultValues;
 
   const initialValues =
     event && type === "Update"
@@ -58,9 +57,6 @@ const EventForrm = ({ userId, type, event, eventId }: EventFormProps) => {
   });
 
   async function onSubmit(values: z.infer<typeof eventFormSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
     let uploadedImageUrl = values.imageUrl;
 
     if (files.length > 0) {

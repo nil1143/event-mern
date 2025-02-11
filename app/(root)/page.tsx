@@ -7,23 +7,18 @@ import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-// export type SearchParamProps = {
-//   params: Promise<{ id: string }>
-//   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-// }
-
 export default async function Home(props: SearchParamProps) {
   const searchParams = await props.searchParams;
   const page = Number(searchParams?.page) || 1;
-  const searchText = (searchParams?.query as string) || '';
-  const category = (searchParams?.category as string) || '';
+  const searchText = (searchParams?.query as string) || "";
+  const category = (searchParams?.category as string) || "";
 
   const events = await getAllEvents({
     query: searchText,
     category,
     page,
-    limit: 6
-  })
+    limit: 6,
+  });
 
   return (
     <>

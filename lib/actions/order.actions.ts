@@ -28,6 +28,9 @@ export type CheckoutOrderParams = {
   buyerId: string;
 };
 
+/**
+ * Creates a new order in the database.
+ */
 export const createOrder = async (order: CreateOrderParams) => {
   try {
     await connectToDatabase();
@@ -44,6 +47,9 @@ export const createOrder = async (order: CreateOrderParams) => {
   }
 };
 
+/**
+ * Initiates the checkout process for an order using Stripe.
+ */
 export const checkoutOrder = async (order: CheckoutOrderParams) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
@@ -86,7 +92,10 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
   }
 };
 
-// GET ORDERS BY EVENT
+/**
+ * GET ORDERS BY EVENT
+ * Retrieves orders associated with a specific event, optionally filtered by a search string.
+ */
 export async function getOrdersByEvent({
   searchString,
   eventId,
@@ -148,7 +157,10 @@ export async function getOrdersByEvent({
   }
 }
 
-// GET ORDERS BY USER
+/**
+ * GET ORDERS BY USER
+ * Retrieves a paginated list of orders made by a specific user.
+ */
 export async function getOrdersByUser({
   userId,
   limit = 3,

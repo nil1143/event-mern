@@ -1,6 +1,9 @@
-import CheckoutButton from '@/components/shared/CheckoutButton';
+import CheckoutButton from "@/components/shared/CheckoutButton";
 import Collection from "@/components/shared/Collection";
-import { getEventById, getRelatedEventsByCategory } from "@/lib/actions/event.actions";
+import {
+  getEventById,
+  getRelatedEventsByCategory,
+} from "@/lib/actions/event.actions";
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
@@ -16,7 +19,7 @@ const EventDetails = async (props: SearchParamProps) => {
     categoryId: event.category._id,
     eventId: event._id,
     page: searchParams.page as string,
-  })
+  });
 
   return (
     <>
