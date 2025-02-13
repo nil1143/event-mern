@@ -1,12 +1,10 @@
 <div align="center">
 
-  <h2 align="center">Full Stack Event Management App</h2>
+  <h2 align="center">Evently - Full Stack Event Management App</h2>
 
-   <div align="center">
-     <h4>This is a full-stack event management application built using the MERN stack and Next.js framework. The application allows users to create, manage, and view events.
-Featuring seamless payment processing through Stripe, you have the capability to purchase tickets for any event or even initiate and manage your own events.</h4>
-    </div>
-    <br>
+Project link: https://event-mern-nine.vercel.app/
+
+
 
 <div>
     <img src="https://img.shields.io/badge/-Next_JS_15-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="Next.js" />
@@ -20,10 +18,22 @@ Featuring seamless payment processing through Stripe, you have the capability to
 
 ## 📋 <a name="table">Table of Contents</a>
 
-1. ⚙️ [Tech Stack](#tech-stack)
-2. 🔋 [Features](#features)
-3. 🕸️ [Quick Start](#quick-start)
+1. 🤖 [Overview](#overview)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 🕸️ [Quick Start](#quick-start)
 5. 🔗 [Links](#links)
+
+## <a name="tech-stack">🤖 Overview</a>
+
+**Evently** is a full-stack event management application built using the MERN stack and Next.js framework. Designed to facilitate:
+- **Event Creation**: Add new events with detailed information.
+- **Event Management**: Update or remove existing events.
+- **User Authentication**: Secure user registration, login, and session management.
+- **Real-Time Interaction**: Live updates on event status, user etc.
+- **Stripe Checkout**: Purchase tickets for any event or even initiate and manage your own events.
+
+<br>
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -32,6 +42,7 @@ Featuring seamless payment processing through Stripe, you have the capability to
 - **Next.js**
 - **TypeScript**
 - **TailwindCSS**
+- **MongoDB**
 - **Stripe**
 - **Zod**
 - **React Hook Form**
@@ -148,3 +159,5 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 - [Shadcn](https://ui.shadcn.com/)
 
 - [uploadthing](https://uploadthing.com/)
+
+
